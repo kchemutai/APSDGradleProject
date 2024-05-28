@@ -17,3 +17,10 @@ dependencies {
 tasks.getByName<Test>("test") {
     useJUnitPlatform()
 }
+
+tasks.run {
+    register<JavaExec>("run") {
+        mainClass.set("org.example.Main")
+        classpath = sourceSets.main.get().runtimeClasspath
+    }
+}
